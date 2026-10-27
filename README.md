@@ -11,7 +11,7 @@ Data (profile, repositories, languages, README excerpts, activity) is loaded liv
 - Per-repository page: description, stats, language bar, topics, README excerpt, copy-clone button
 - Sort and language filters, optional fork display
 - Command-palette search (`/` or `Ctrl K`) across every page and repository
-- English and Persian (فارسی) with full right-to-left layout
+- English and Persian with full right-to-left layout
 - Keyboard, mouse, touch (swipe) and gamepad control
 - Deep links: `#projects/QuickCD`, `#stack/lang:C`, `#settings/theme`
 - Graceful states for rate limits and offline use (cached data, then a short built-in list)
@@ -50,14 +50,6 @@ To preview locally: `python3 -m http.server 8000` and open `http://localhost:800
 
 ## License
 
-MIT. Replace this section with your preferred license.
+See [LICENSE](LICENSE).
 
 ---
-
-## فارسی
-
-یک پورتفولیوی تعاملی برای توسعه‌دهنده با الهام از منوی اصلی کنسول‌ها (دسته‌های افقی و آیتم‌های عمودی). فقط HTML و CSS و JavaScript ساده، بدون ابزار بیلد و بدون ردیابی.
-
-- همه‌ی اطلاعات شخصی در فایل `config.js` است (نام کاربری، معرفی، حوزه‌های تمرکز، پروژه‌های سنجاق‌شده) و هر متن نسخه‌ی فارسی و انگلیسی دارد.
-- برای انتشار: همه‌ی فایل‌ها را در یک ریپازیتوری آپلود کنید، سپس در **Settings → Pages** منبع را **GitHub Actions** بگذارید.
-- میانبرها: `/` جستجو، `L` تغییر زبان، `T` تغییر رنگ، `?` راهنما، کلیدهای جهتی برای حرکت.
