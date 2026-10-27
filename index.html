@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#04101f" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://avatars.githubusercontent.com; connect-src https://api.github.com; base-uri 'self'; form-action 'none'" />
+  <title>Iliya Haddad — XMB developer portfolio</title>
+  <meta name="description" content="Iliya Haddad — independent developer. Explore drivers, retro tooling, embedded projects and open-source work through an interactive XMB-inspired portfolio. Available in English and Persian." />
+  <meta name="author" content="Iliya Haddad" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Iliya Haddad — developer portfolio" />
+  <meta property="og:description" content="Live GitHub projects, languages and activity in an XMB-inspired interface." />
+  <meta property="og:image" content="assets/og-image.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="preconnect" href="https://api.github.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600&family=Vazirmatn:wght@300;400;500;600&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="wave" aria-hidden="true"></canvas>
+  <div class="veil" aria-hidden="true"></div>
+
+  <div id="boot" aria-hidden="true">
+    <svg viewBox="0 0 120 120" width="120" height="120"><circle class="ring" cx="60" cy="60" r="52" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="60" y="68" text-anchor="middle" font-size="26" font-weight="500" fill="currentColor">IH</text></svg>
+  </div>
+
+  <a class="skip" href="#detail" data-i18n="a11y.skip">Skip to details</a>
+
+  <div class="app">
+    <header class="topbar">
+      <a class="brand" href="#home/welcome" aria-label="Home">
+        <span class="mark">IH</span>
+        <span class="brand-text"><b data-i18n="brand.name">Iliya Haddad</b><small data-i18n="brand.sub">Developer portfolio</small></span>
+      </a>
+      <div class="tools">
+        <span class="status" id="status" data-state="loading"><i class="dot"></i><span id="status-text">Connecting</span></span>
+        <button type="button" class="tool" id="btn-search" data-icon="search" data-i18n-label="tool.search" aria-label="Search"></button>
+        <button type="button" class="tool text" id="btn-lang" data-i18n-label="tool.lang" aria-label="Language"><span id="btn-lang-text">فا</span></button>
+        <button type="button" class="tool" id="btn-refresh" data-icon="refresh" data-i18n-label="tool.refresh" aria-label="Refresh"></button>
+        <button type="button" class="tool hide-sm" id="btn-full" data-icon="expand" data-i18n-label="tool.full" aria-label="Fullscreen"></button>
+        <button type="button" class="tool" id="btn-help" data-icon="help" data-i18n-label="tool.help" aria-label="Help"></button>
+        <time id="clock">--:--</time>
+      </div>
+    </header>
+
+    <main class="xmb" id="xmb">
+      <h1 class="sr-only">Iliya Haddad — developer portfolio</h1>
+      <div class="rail-wrap"><nav class="rail" id="rail" role="tablist" aria-label="Categories"></nav></div>
+      <div class="body">
+        <div class="items-wrap">
+          <div class="items" id="items" role="listbox" aria-label="Items"></div>
+        </div>
+        <section class="detail" id="detail" tabindex="-1" aria-label="Details"></section>
+      </div>
+      <div class="count"><i></i><span id="item-count">01 / 04</span></div>
+    </main>
+
+    <footer class="foot">
+      <span id="foot-hint" class="hide-sm"></span>
+      <span id="foot-disc"></span>
+      <span id="version"></span>
+    </footer>
+  </div>
+
+  <div id="palette" class="overlay" role="dialog" aria-modal="true" aria-label="Search" hidden>
+    <div class="sheet">
+      <div class="search-row"><span data-icon="search"></span><input id="palette-input" type="text" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="true" aria-controls="palette-list" placeholder="Search projects, languages, pages" /></div>
+      <ul id="palette-list" role="listbox"></ul>
+    </div>
+  </div>
+
+  <div id="help" class="overlay" role="dialog" aria-modal="true" aria-labelledby="help-title" hidden>
+    <div class="sheet pad">
+      <h2 id="help-title" data-i18n="help.title">Keyboard, touch and gamepad</h2>
+      <div id="help-body"></div>
+      <p class="hint" data-i18n="help.touch">On touch screens, swipe sideways to change category and tap an item to select it. A connected gamepad works too: D-pad to move, A to open, B to go back.</p>
+      <button type="button" class="btn primary" id="help-close" data-i18n="btn.close">Close</button>
+    </div>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+  <div id="sr" class="sr-only" aria-live="polite"></div>
+
+  <noscript>
+    <div class="noscript">
+      <h2>Iliya Haddad — developer portfolio</h2>
+      <p>This interactive portfolio needs JavaScript. You can still browse everything on GitHub:</p>
+      <p><a href="https://github.com/iliyahaddad">github.com/iliyahaddad</a> · <a href="https://github.com/iliyahaddad?tab=repositories">All repositories</a></p>
+    </div>
+  </noscript>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Iliya Haddad","url":"https://github.com/iliyahaddad","sameAs":["https://github.com/iliyahaddad"],"jobTitle":"Independent developer"}</script>
+  <script src="config.js"></script>
+  <script src="i18n.js"></script>
+  <script src="wave.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+  "name": "Iliya Haddad — developer portfolio",
+  "short_name": "IH Portfolio",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#04101f",
+  "theme_color": "#04101f",
+  "icons": [{ "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
