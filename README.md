@@ -52,4 +52,3 @@ To preview locally: `python3 -m http.server 8000` and open `http://localhost:800
 
 See [LICENSE](LICENSE).
 
----
